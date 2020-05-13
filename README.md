@@ -40,12 +40,15 @@ L'utilisateur a accès à l'envoi de messages de problème en utilisant le formu
 4. Créer la base de données en utilisant l'outil `phpmyadmin`
 5. Intégrer le désigne en se basant sur les données stocker sur la base de données
 
-# Modalité de travail 
+# Modalités pédagogiques 
 - Travail individuel
+- Durée : 15 jours ouvrable
+- outils de collaboration : Github, discord
 
-# Critère d'évaluation
-- Entretien individuel
+## Livrables attendus
+- Application du modèle MVC
+- Conception de la base de données
+- Site fonctionnel avec les fonctionnalitées CRUD
 
-# Durée
-
-- 15 jours ouvrable
+# Modalités d'évaluation
+- Oral
