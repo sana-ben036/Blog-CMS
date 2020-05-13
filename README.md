@@ -39,3 +39,13 @@ L'utilisateur a accès à l'envoi de messages de problème en utilisant le formu
 3. Concevoir l'application (`UML`/`Merise`, `UI/UX`)
 4. Créer la base de données en utilisant l'outil `phpmyadmin`
 5. Intégrer le désigne en se basant sur les données stocker sur la base de données
+
+# Modalité de travail 
+- Travail individuel
+
+# Critère d'évaluation
+- Entretien individuel
+
+# Durée
+
+- 15 jours ouvrable
