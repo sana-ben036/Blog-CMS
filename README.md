@@ -18,7 +18,7 @@ Cette application web est entièrement fonctionnelle et l'objectif principal de 
 7. Modifier/remplacer l'image de la poste
 8. Supprimer l'image de la poste
 
-### Caractéristiques de l'utilisateur :
+### Caractéristiques visiteurs:
 1. Voir tous les articles
 2. Ouvrir un poste spécifique pour lire l'article complet
 3. Plainte de suggestion en utilisant le formulaire de contact
