@@ -31,7 +31,7 @@ Pour créer un article, il suffit de cliquer sur le lien "Ajouter un article" et
 
 L'utilisateur est le spectateur et le lecteur du blog / de l'article. Il/elle peut voir tous les articles listés sur la page d'index avec le titre du blog, l'horodatage et la catégorie dans laquelle il/elle est mentionné(e) lors de la création et le contenu. Pour ouvrir l'article de blog pour une vue complète, il suffit de cliquer sur le titre du blog et l'article entier est affiché.
 
-L'utilisateur a accès à l'envoi de messages de problème en utilisant le formulaire de contact fourni. Les utilisateurs peuvent remplir le formulaire de contact avec l'objet et le message du courriel et l'envoyer sera envoyé à l'administrateur principal. (Pour ajouter un courriel d'administration, il suffit d'ajouter votre propre courriel dans le fichier contact.php)
+L'utilisateur a accès à l'envoi de messages de problème en utilisant le formulaire de contact fourni. Les utilisateurs peuvent remplir le formulaire de contact avec l'objet et le message du courriel et l'envoyer sera envoyé à l'administrateur principal.
 
 ## Déroulement
 1. Préparer l'envoronemnet de travail ( serveur local `xampp` ou `wamp`)
