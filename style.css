@@ -1,0 +1,29 @@
+.actualités{
+    text-align:center;
+    margin:4rem;
+    color:blue;
+}
+.card{
+    width: 18rem;
+    height: 380px;
+    margin:2rem;
+}
+.map{
+    margin: 2rem;
+}
+
+.form{
+    margin:2rem;
+}
+.cl{
+    float: left;
+    height: 500px;
+}
+
+
+
+
+
+
+
+
