@@ -1,10 +1,22 @@
 <?php
 
+// connection to db
+require "connect.php";
+// send input value to table post
+if(isset($_POST['submitpost'])){
+    $title = $_POST['title'];
+    $text= $_POST['text'];
+    $image= $_POST['image'];
+    $query = "INSERT INTO post (title,text,image) value ('$title','$text','$image')";
+    mysqli_query($connect,$query);
+} 
 
-if(isset($_POST['submit'])){
+
+// script logout
+if(isset($_POST['logout'])){
     unset($_SESSION['name']);
     header('LOCATION:login.php');
- 
+
 } 
 
 
@@ -37,7 +49,7 @@ require "navbar.php";
             <a href=""><h5>Manage posts</h5></a><hr>
             <a href=""><h5>Manage topics</h5></a><hr>
             <form action="" method='POST'>
-                <button type='submit' name='submit' class='btn btn-primary'>Logout</button>
+                <button type='submit' name='logout' class='btn btn-primary'>Logout</button>
             </form>
 
 
@@ -52,17 +64,10 @@ require "navbar.php";
                     <label for="text">Text:</label>
                     <input type="text" name='text' id='text'><br><br>
                     <label for="image">Image:</label>
-                    <input type="upload" name='image' id='image'><br><br>
-                    </pre>
-                    <input type="submit" name='submit' value='Submit' class='btn btn-primary'>
+                    <input type="file" id="image" name="image" accept="image/png, image/jpeg"></pre>
+                    <input type="submit" name='submitpost' value='Submit' class='btn btn-primary'>
 
-                
-
-
-
-
-
-
+        
 
                 </form>
             </div>

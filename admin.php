@@ -1,7 +1,23 @@
 <?php
+require 'connect.php';
+
+// get data from db
+$result=$db->query('SELECT * FROM post');
+
+while ($data = $result->fetch())
+{
+?>
+<?php
+}
+
+$result->closeCursor(); // Termine le traitement de la requête
+
+?>
+
+<?php
 
 
-if(isset($_POST['submit'])){
+if(isset($_POST['logout'])){
     unset($_SESSION['name']);
     header('LOCATION:login.php');
  
@@ -27,7 +43,7 @@ if(isset($_POST['submit'])){
             crossorigin="anonymous">
         <!-- CSS -->
         <link rel="stylesheet" href="style.css">
-        <title>Login</title>
+        <title>Admin space</title>
     </head>
 
     <body>
@@ -35,27 +51,54 @@ if(isset($_POST['submit'])){
         <?php
 require "navbar.php";
 ?>
-    <div class="row">
+    <div class="row"> 
         <div class="col-lg-3 cl">
             <a href="newpost.php"><h5>New post</h5></a><hr>
-            <a href=""><h5>Manage posts</h5></a><hr>
+            <a href="#manageposts/admin.php"><h5>Manage posts</h5></a><hr>
             <a href=""><h5>Manage topics</h5></a><hr>
             <form action="" method='POST'>
-                <button type='submit' name='submit' class='btn btn-primary'>Logout</button>
+                <button type='submit' name='logout' class='btn btn-primary'>Logout</button>
             </form>
-
-
         </div>
+
+
         <div class="col-lg-9 cl">
-            <h5>Welcome in Dashbord</h5>
-            
+            <h5>Welcome in Admin Space</h5><hr>
+            <div class="container" id='manageposts'>
+            <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                <?php
+                // get data from db
+$result=$db->query('SELECT * FROM post');
+while ($data = $result->fetch())
+{
+?>
+
+                <tr>
+                    <td><?php echo $data['title']; ?></td>
+                    <td><?php echo $data['date']; ?></td>
+                    <td><a href="">edit</a></td>
+                    <td><a href="">delete</a></td>
+                </tr>
+<?php
+}
+
+$result->closeCursor(); // Termine le traitement de la requête
+?>
+            </tbody>
+            </table>
+            </div>
         </div>
-
     </div>
-
-
-
 
 
 

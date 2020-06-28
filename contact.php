@@ -1,6 +1,6 @@
 <?php
 // connection to db
-include "db.php";
+require "connect.php";
 // send input value to table of db
 if(isset($_POST['submit'])){
     $name = $_POST['name'];

@@ -1,15 +1,45 @@
 <?php
 // connection to db
-include "db.php";
-// send input value to table of db
+$host='localhost';
+$user='root';
+$pass='';
+$db='blog';
+
+$connect=mysqli_connect($host,$user,$pass,$db);
+
+/*
+$req = $db->prepare('SELECT * FROM admin WHERE username = :username');
+
+$data = $req->fetch();
+
+$isPasswordCorrect = password_verify($_POST['password'], $data['password']);
+
+if (!$data)
+{
+    echo 'invalid input1!';
+}
+else
+{
+    if ($isPasswordCorrect) {
+        $_SESSION['username'] = $username;
+        echo 'you are connected!';
+        header("LOCATION:dashbord.php");
+    }
+    else {
+        echo 'invalid input2 !';
+    }
+}
+
+*/
 session_start();
+
 if(isset($_POST['submit'])){
     $username = $_POST['username'];
     $password= $_POST['password'];
     $query = "SELECT * FROM admin WHERE username='$username'&& password='$password'";
     if(mysqli_num_rows(mysqli_query($connect,$query))>0){
         $_SESSION['username']=$username;
-        header("LOCATION:dashbord.php");
+        header("LOCATION:admin.php");
     } else{
         echo ' username or password invalid';
     }
