@@ -1,6 +1,6 @@
-<?php require'../action.php';
+<?php require'../action.php';?>
 
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +25,7 @@
             <a href="../login.php"><h5>Login Out</h5></a><hr>
         </div>
         <div class="col-lg-9 ">
-            <h5>Welcome To Dashboard</h5><hr>
-            <div class="container">
+            <h5>Welcome To Dashboard
             <!-----------php/ alert---------------->
             <?php if(isset($_SESSION['message'])){ ;?>
                     <div class="alert alert-<?= $_SESSION['msg_type'];?>  alert-dismissible text-center">
@@ -35,6 +34,10 @@
                     </div>
                 <?php } unset($_SESSION['message']) ; ?>
             <!-----------php------------------------>
+            
+            </h5><hr>
+            <div class="container">
+            
 
             </div>
         </div>

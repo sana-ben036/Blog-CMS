@@ -35,8 +35,9 @@ function valid_data($data){
             {
                 header("LOCATION:admin/dashboard.php"); 
     
-                $_SESSION['message']= " You are login as admin !";
-                $_SESSION['msg_type']= "success";
+                //$_SESSION['message']= " You are login as admin !";
+                //$_SESSION['msg_type']= "success";
+                
                 
                 
             }else{
@@ -48,11 +49,6 @@ function valid_data($data){
         
 
     }
-
-        
-    
-
-
 
 
         /*
@@ -251,4 +247,12 @@ if(isset($_GET['read'])){
 
 }
 
+// script to block anyone to check in dashboard from url
+
+
+
+
+
+
+$db=null;
 ?>

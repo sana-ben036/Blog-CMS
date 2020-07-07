@@ -23,7 +23,13 @@
             <img src="admin/<?= $image;?>" width="400" ><br><br>
             <p><?= $text ?></p>
             <p>Posted :<?= $date ?></p>
-            <p>By :<?= $username ?></p><br>
+            <p>By :
+                <?php if (isset($_SESSION['username']))
+                    { 
+                        echo $_SESSION['username'];
+                    }
+                ?>
+                </p><br>
 
 
         </div>

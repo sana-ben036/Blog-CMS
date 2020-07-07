@@ -16,7 +16,12 @@
                     <a class="nav-link" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""><?= $username ?></a>
+                    <a class="nav-link" href="">
+                    <?php if (isset($_SESSION['username']))
+                    { 
+                        echo $_SESSION['username'];
+                    }
+                    ?></a>
                 </li>
 
             </ul>
