@@ -1,6 +1,16 @@
-<?php require'db.php';
+<?php require'../db.php';
+
+session_start();
+
+// script logout
+if(isset($_POST['logout'])){
+unset($_SESSION['username']);
+header('LOCATION:login.php');
+
+}
 
 
+$db=null; // fin de connexion
 ?>
 
 <!DOCTYPE html>
@@ -12,43 +22,31 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Home</title>
+    <title>Dashboard</title>
 </head>
 <body>
 <header>
     <?php include 'navbar.php' ?>
 </header>
+<div class="row justify-content-center"> 
+<div class="col-lg-3">
+            <a href="newpost.php"><h5>New post</h5></a><hr>
+            <a href="managepost.php"><h5>Manage posts</h5></a><hr>
+            <a href=""><h5>Manage topics</h5></a><hr>
+            <a href="../login.php"><h5>Login Out</h5></a><hr>
+        </div>
+        <div class="col-lg-9 ">
+            <h5>Welcome To Dashboard</h5><hr>
+            <div class="container">
 
-
-
-
-<h2 class='news'>About Coronavirus News</h2>
-<div class='container'>
-    <div class="row">
-    <!--------php --------------------->
-    <?php 
-       // get data from db
-        $sth= $db->query('SELECT * FROM post');
-        while ($row = $sth->fetch()){
-        ?>
-        <div class="col-lg-4 col-md-6 col-xd-12">
-            <div class="card">
-                <img src="admin/<?= $row['image'];?>" class="card-img-top" alt="">
-                <div class="card-body">
-                    <a href="viewpost.php">
-                        <h5 class="card-title"><?= $row['title'];?>‎</h5>
-                    </a>
-                </div>
             </div>
         </div>
-        <?php 
-
-        }  
-        $db=null ; // fin de connexion        
-    ?> 
-    <!--------php --------------------->
     </div>
-</div>
+
+
+
+
+
 
     
 

@@ -1,4 +1,4 @@
-.actualités{
+.news{
     text-align:center;
     margin:4rem;
     color:blue;
@@ -15,16 +15,15 @@
 .form{
     margin:2rem;
 }
-.cl{
-    float: left;
-    height: 500px;
-}
+
 .text{
 text-align: justify;}
 
-
-
-
+.para{
+    text-align: center;
+    color: gray;
+    
+}
 
 
 
