@@ -22,35 +22,37 @@ function valid_data($data){
 
 if(isset($_POST['add'])){                    //$_SERVER["REQUEST_METHOD"] == "POST"
 
+    //test values on input
     $title =valid_data ($_POST['title']);
     $text= valid_data($_POST['text']);
-    //$image= valid_data($_POST['image']);
     $image= $_FILES['image']['name'];
     $upload="uploads/".$image;
 
-     //On insère les données vers db
+     //insert values in  db
     $sth = $db->prepare("
     INSERT INTO post(title, text, image)
     VALUES(:title, :text, :image)");
-$sth->bindParam(':title',$title);
-$sth->bindParam(':text',$text);
-$sth->bindParam(':image',$upload);
-$sth->execute();
-move_uploaded_file($_FILES['image']['tmp_name'],$upload);
+    $sth->bindParam(':title',$title);
+    $sth->bindParam(':text',$text);
+    $sth->bindParam(':image',$upload);
+    $sth->execute();
+    move_uploaded_file($_FILES['image']['tmp_name'],$upload);
 
-//header('Location : newpost.php');
+   //header('Location : newpost.php');
 
-$_SESSION['message']= " Your post added successfuly!";
-$_SESSION['msg_type']= "success";
+    $_SESSION['message']= " Your post added successfuly!";
+    $_SESSION['msg_type']= "success";
 
 } 
 
+
 // update a post:::::::
+
 if(isset($_GET['edit'])){
 
     $id = $_GET['edit'];
 
-    // show old details of post
+    // select the post a modifier selon son id et recuperer les details de ce post
     $sth=$db->prepare('SELECT * FROM post WHERE id = :id ')  ;
     $sth->bindParam(':id',$id);
     $sth->execute();
@@ -61,7 +63,7 @@ if(isset($_GET['edit'])){
         $text=$row['text'];
         $image=$row['image'];
 
-        $update = true;
+        $update = true;     // true ou false selon selon le choix : newpost vide input ou update pr recuperer les details de post in input
         
     }
 
@@ -69,14 +71,17 @@ if(isset($_GET['edit'])){
 
 
 }
+
 // edit details of post
 if(isset($_POST['update'])){
 
-    $id =$_POST['id'];
-    $title =$_POST['title'];
-    $text= $_POST['text'];
+    //show details post befor update it
+    $id = $_POST['id'];
+    $title = valid_data($_POST['title']);
+    $text= valid_data ($_POST['text']);
     $oldimage= $_POST['oldimage'];
 
+    // to change and upload new image 
     if(isset($_FILES['image']['name']) && ($_FILES['image']['name'] != " ")){
 
         $newimage="uploads/".$_FILES['image']['name'];
