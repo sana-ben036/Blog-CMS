@@ -16,8 +16,7 @@
                     <a class="nav-link" href="../index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""><?= $_SESSION['username'] ?>
-                    </a>
+                    <a class="nav-link" href=""><?= $username ?></a>
                 </li>
 
             </ul>

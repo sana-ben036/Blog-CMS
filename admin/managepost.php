@@ -1,40 +1,4 @@
-<?php require'../db.php'; 
-
-session_start();
-
-
-
-if(isset($_GET['delete'])){
-
-    $id = $_GET['delete'];
-
-    //delete image from uploads folder
-    $sth2=$db->prepare( 'SELECT image FROM post WHERE id= :id ');
-    $sth2->bindParam(':id',$id);
-    $sth2->execute();
-    while ($row = $sth2->fetch())
-    {
-        $imagepath=$row['image'];
-        unlink($imagepath);
-    }
-
-    
-
-    // delete the post from db
-    $sth=$db->prepare('DELETE FROM post WHERE id= :id ')  ;
-    $sth->bindParam(':id',$id);
-    $sth->execute();
-
-    //header("Location: managepost.php");
-
-    $_SESSION['message']= "Successfuly Deleted !";
-    $_SESSION['msg_type']= "danger";
-
-}
-
-
-
-?>
+<?php require'../action.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

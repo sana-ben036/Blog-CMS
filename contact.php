@@ -1,35 +1,4 @@
-<?php require'db.php'; 
-
-// fonction pr tester les input
-function valid_data($data){
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = valid_data($_POST['name']);
-    $email= valid_data($_POST['email']);
-    $subject= valid_data($_POST['subject']);
-    $message = valid_data($_POST['message']);
-
-
-    //On insère les données vers db
-    $sth = $db->prepare("
-    INSERT INTO contact(name, email, subject, message)
-    VALUES(:name, :email, :subject, :message)");
-$sth->bindParam(':name',$name);
-$sth->bindParam(':email',$email);
-$sth->bindParam(':subject',$subject);
-$sth->bindParam(':message',$message);
-$sth->execute();
-
-} 
-
-$db=null ;    
-
-?>
+<?php require'action.php'; ?>
 
 
 
@@ -57,6 +26,15 @@ $db=null ;
     <p class="text-center w-responsive mx-auto mb-5">Do you have any questions?
         Please do not hesitate to contact us directly. Our team will come back to you
         within a matter of hours to help you.</p>
+
+        <!-----------php/ alert---------------->
+        <?php if(isset($_SESSION['message'])){ ;?>
+                    <div class="alert alert-<?= $_SESSION['msg_type'];?>  alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <b><?= $_SESSION['message'] ; ?></b>
+                    </div>
+                <?php } unset($_SESSION['message']) ; ?>
+            <!-----------php------------------------>
 
     <div class="row">
         <!--Grid column-->

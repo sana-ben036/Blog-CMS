@@ -1,8 +1,4 @@
-<?php require'db.php'; 
-
-session_start();
-
-?>
+<?php require'action.php'; ?>
 
 
 
@@ -34,39 +30,14 @@ session_start();
                     <div id="login-box" class="col-md-12">
                         <form id="login-form" class="form" action="" method="post">
                             <h3 class="text-center text-info">Login </h3>
-
-                            <!----------- php ------------------->
-                            <?php
-
-                            if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-                                $email = $_POST['email'];
-                                $password= $_POST['password'];
-                            
-                            
-                                $sth = $db->prepare("SELECT * FROM admin WHERE email = ?");
-                                $sth->execute([$_POST['email']]);
-                                $admin = $sth->fetch();
-                            
-                                if ($admin && ($_POST['password'] === $admin['password']))
-                                {
-                                    $_SESSION['username']=$username;
-                                    $_SESSION['email']=$email;
-                                    $_SESSION['password']=$password;
-                                    
-                                    header("LOCATION:admin/dashboard.php");
-                                } else{
-                                    echo ' Invalid E-mail or Password ';
-                            
-                                }
-                    
-                            }
-
-                            $db= null;
-
-                            ?>
-                            <!-----------fin  php ------------------->
-
+                            <!-----------php/ alert---------------->
+                <?php if(isset($_SESSION['message'])){ ;?>
+                    <div class="alert alert-<?= $_SESSION['msg_type'];?>  alert-dismissible text-center">
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <b><?= $_SESSION['message'] ; ?></b>
+                    </div>
+                <?php } unset($_SESSION['message']) ; ?>
+                            <!-----------php------------------------>
                             <div class="form-group">
                                 <label for="username" class="text-info">E-mail:</label><br>
                                 <input type="email" name="email" id="email" class="form-control">

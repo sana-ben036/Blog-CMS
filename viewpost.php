@@ -1,6 +1,4 @@
-<?php require'../action.php';
-
-?>
+<?php require'action.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -11,41 +9,29 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Dashboard</title>
+    <title>Viewpost</title>
 </head>
 <body>
 <header>
     <?php include 'navbar.php' ?>
 </header>
-<div class="row justify-content-center"> 
-<div class="col-lg-3">
-            <a href="newpost.php"><h5>New post</h5></a><hr>
-            <a href="managepost.php"><h5>Manage posts</h5></a><hr>
-            <a href=""><h5>Manage topics</h5></a><hr>
-            <a href="../login.php"><h5>Login Out</h5></a><hr>
-        </div>
-        <div class="col-lg-9 ">
-            <h5>Welcome To Dashboard</h5><hr>
-            <div class="container">
-            <!-----------php/ alert---------------->
-            <?php if(isset($_SESSION['message'])){ ;?>
-                    <div class="alert alert-<?= $_SESSION['msg_type'];?>  alert-dismissible text-center">
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        <b><?= $_SESSION['message'] ; ?></b>
-                    </div>
-                <?php } unset($_SESSION['message']) ; ?>
-            <!-----------php------------------------>
 
-            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 mt-3 bg-light p-2 rounded">
+            <h2><?= $title ?></h2><br>
+            <img src="admin/<?= $image;?>" width="400" ><br><br>
+            <p><?= $text ?></p>
+            <p>Posted :<?= $date ?></p>
+            <p>By :<?= $username ?></p><br>
+
+
         </div>
     </div>
+</div>
 
 
 
-
-
-
-    
 
 
 

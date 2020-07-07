@@ -1,7 +1,4 @@
-<?php require'db.php';
-
-
-?>
+<?php require'action.php';?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +32,10 @@
             <div class="card">
                 <img src="admin/<?= $row['image'];?>" class="card-img-top" alt="">
                 <div class="card-body">
-                    <a href="viewpost.php">
-                        <h5 class="card-title"><?= $row['title'];?>‎</h5>
-                    </a>
+                <h5 class="card-title">
+                <?= $row['title'];?>‎<br><br>
+                <a  href="viewpost.php?read=<?= $row['id'] ;?>">Read</a>
+                </h5>
                 </div>
             </div>
         </div>
