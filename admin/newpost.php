@@ -21,12 +21,12 @@
             <a href="newpost.php"><h5>New post</h5></a><hr>
             <a href="managepost.php"><h5>Manage posts</h5></a><hr>
             <a href=""><h5>Manage topics</h5></a><hr>
-            <a href="../login.php"><h5>Login Out</h5></a><hr>
+            <a href="../login.php"><h5>Logout</h5></a><hr>
         </div>
 
         <div class="col-lg-9 cl">
             <div class="container">
-                <h5>Create a new post</h5><br><br><br>
+                <h5>Create a new post</h5><br><br>
                 <!-----------php/alert---------------->
 
                 <?php if(isset($_SESSION['message'])){ ;?>
@@ -38,17 +38,19 @@
                 <!-----------php---------------------->
 
                 <form action="" method='POST' enctype="multipart/form-data">
-                    <pre>
+                <pre>
                     <input type="hidden" name='id' value='<?= $id; ?>'> 
                     <label for="title">Title:</label>
-                    <input type="text" name='title' id='title' value='<?= $title; ?>' required><br><br>
+                    <textarea name="title" id="title" cols="100" rows="2" value='<?= $title; ?>' required></textarea><br><br>
+                    <!---<input type="text" name='title' id='title' width='300' value='<?= $title; ?>' required><br><br>--->
                     <label for="text">Text:</label>
-                    <input type="text" name='text' id='text' value='<?= $text; ?>' required><br><br>
+                    <textarea name="text" id="text" cols="100" rows="10" value='<?= $text; ?>' required></textarea><br><br>
+                    <!---<input type="text" name='text' id='text' value='<?= $text; ?>' required><br><br>--->
                     <label for="image">Image:</label>
                     <input type="hidden" name='oldimage' value='<?= $image; ?>'>
                     <input type="file" id="image" name="image"  accept="image/png, image/jpeg">
                     <img src="<?= $image; ?>" width='120' class='img-thumbnail'>
-                    </pre>
+                </pre>
                     <?php if($update == true){ ?>
                         <input type="submit" name='update' value='Update post' class='btn btn-info btn-md'>
                     <?php }else { ?>

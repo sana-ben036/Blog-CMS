@@ -19,7 +19,7 @@
                     <a class="nav-link" href="">
                     <?php if (isset($_SESSION['username']))
                     { 
-                        echo $_SESSION['username'];
+                        echo ucfirst($_SESSION['username']);
                     }
                     ?></a>
                 </li>

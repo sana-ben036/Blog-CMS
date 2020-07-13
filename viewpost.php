@@ -26,7 +26,7 @@
             <p>By :
                 <?php if (isset($_SESSION['username']))
                     { 
-                        echo $_SESSION['username'];
+                        echo ucfirst($_SESSION['username']);
                     }
                 ?>
                 </p><br>

@@ -83,7 +83,23 @@ if (isset($_POST['send'])) {
     $subject= valid_data($_POST['subject']);
     $message = valid_data($_POST['message']);
 
+    if((!empty($name)) && (!empty($email)) && (!empty($subject)) && (!empty($message))){
+        $dest = "lamar.chebbo@gmail.com";
+        $subj = "Contact Form";
+        $msg= " New message recieved \n
+        Name = $name \n
+        E-mail = $email \n
+        Subject = $subject \n
+        Message = $message ";
+        $headers= 'MINE-Version: 1.0'. "<br>";
+        $headers= 'From : $name <$email>'. "<br>";
+        $headers= 'Content-type: text/html; charset=iso-8859-1'. "\r\n";
+        mail($dest, $subj, $msg, $headers);
+    }else{
+        echo "erreur";
+    }
 
+/*
     //On insère les données vers db
     $sth = $db->prepare("
     INSERT INTO contact(name, email, subject, message)
@@ -93,7 +109,7 @@ $sth->bindParam(':email',$email);
 $sth->bindParam(':subject',$subject);
 $sth->bindParam(':message',$message);
 $sth->execute();
-
+*/
 $_SESSION['message']= "Message Successfuly Sent !";
 $_SESSION['msg_type']= "success";
 
@@ -254,5 +270,5 @@ if(isset($_GET['read'])){
 
 
 
-$db=null;
+//$db=null;
 ?>

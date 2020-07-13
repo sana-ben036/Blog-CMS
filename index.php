@@ -32,17 +32,16 @@
             <div class="card">
                 <img src="admin/<?= $row['image'];?>" class="card-img-top" alt="">
                 <div class="card-body">
-                <h5 class="card-title">
-                <?= $row['title'];?>‎<br><br>
-                <a  href="viewpost.php?read=<?= $row['id'] ;?>">Read</a>
-                </h5>
+                    <h5 class="card-title">
+                        <?= $row['title'];?>‎<br><br>
+                        <a  href="viewpost.php?read=<?= $row['id'] ;?>">Read</a>
+                    </h5>
                 </div>
             </div>
         </div>
         <?php 
 
         }  
-        $db=null ; // fin de connexion        
     ?> 
     <!--------php --------------------->
     </div>

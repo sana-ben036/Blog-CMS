@@ -22,7 +22,7 @@
             <a href="newpost.php"><h5>New post</h5></a><hr>
             <a href="managepost.php"><h5>Manage posts</h5></a><hr>
             <a href=""><h5>Manage topics</h5></a><hr>
-            <a href="../login.php"><h5>Login Out</h5></a><hr>
+            <a href="../login.php"><h5>Logout</h5></a><hr>
         </div>
         <div class="col-lg-9 ">
             <h5>Welcome To Dashboard
