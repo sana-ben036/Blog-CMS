@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
     <title>Newpost</title>
 </head>
 <body>
@@ -41,11 +42,11 @@
                 <pre>
                     <input type="hidden" name='id' value='<?= $id; ?>'> 
                     <label for="title">Title:</label>
-                    <textarea name="title" id="title" cols="100" rows="2" value='<?= $title; ?>' required></textarea><br><br>
-                    <!---<input type="text" name='title' id='title' width='300' value='<?= $title; ?>' required><br><br>--->
+                    <!---<textarea name="title" id="title" cols="100" rows="2" value='<?= $title; ?>' required></textarea><br><br>--->
+                    <input class='input1' type="text" name='title' id='title' value='<?= $title; ?>' required><br><br>
                     <label for="text">Text:</label>
-                    <textarea name="text" id="text" cols="100" rows="10" value='<?= $text; ?>' required></textarea><br><br>
-                    <!---<input type="text" name='text' id='text' value='<?= $text; ?>' required><br><br>--->
+                    <!---<textarea name="text" id="text" cols="100" rows="10" value='<?= $text; ?>' required></textarea><br><br>--->
+                    <input class='input2' type="text" name='text' id='text' value='<?= $text; ?>' required><br><br>
                     <label for="image">Image:</label>
                     <input type="hidden" name='oldimage' value='<?= $image; ?>'>
                     <input type="file" id="image" name="image"  accept="image/png, image/jpeg">
